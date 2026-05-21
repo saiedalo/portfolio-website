@@ -1,0 +1,7 @@
+node_modules/
+test-results/
+design/
+design-project-overview/
+.claude/
+playwright-report/
+.DS_Store

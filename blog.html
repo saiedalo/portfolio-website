@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | ARCHITECT.AI — Insights &amp; Innovation</title>
+  <meta name="description" content="Gedanken zu KI-Architektur, Cloud-Skalierung und der Zukunft von Enterprise-Software.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<div id="nav-sentinel" style="height:1px;pointer-events:none;" aria-hidden="true"></div>
+<nav id="site-nav" class="site-nav">
+  <div class="site-container">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">
+        <span class="material-symbols-outlined site-nav__brand-icon">terminal</span>
+        ARCHITECT.AI
+      </a>
+      <ul class="site-nav__links d-none d-lg-flex">
+        <li><a href="projekte.html" class="site-nav__link">Projekte</a></li>
+        <li><a href="ueber-mich.html" class="site-nav__link">Über mich</a></li>
+        <li><a href="blog.html" class="site-nav__link">Blog</a></li>
+        <li><a href="kontakt.html" class="site-nav__link">Kontakt</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <span class="avail-badge d-none d-md-flex">
+          <span class="avail-badge__dot"></span>Verfügbar
+        </span>
+        <button id="theme-toggle" class="btn-icon" aria-label="Zu dunklem Modus wechseln">
+          <span class="material-symbols-outlined theme-icon">dark_mode</span>
+        </button>
+        <a href="kontakt.html" class="btn-primary-custom d-none d-md-flex">Projekt starten</a>
+        <button class="btn-icon d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Menü öffnen">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-end site-offcanvas" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header">
+    <span class="t-title-md font-sora" style="color:var(--color-primary);" id="mobileNavLabel">ARCHITECT.AI</span>
+    <button type="button" class="btn-icon" data-bs-dismiss="offcanvas" aria-label="Schließen">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column gap-0">
+    <a href="projekte.html" class="site-nav__link site-nav__link--mobile">Projekte</a>
+    <a href="ueber-mich.html" class="site-nav__link site-nav__link--mobile">Über mich</a>
+    <a href="blog.html" class="site-nav__link site-nav__link--mobile active">Blog</a>
+    <a href="kontakt.html" class="site-nav__link site-nav__link--mobile">Kontakt</a>
+    <a href="kontakt.html" class="btn-primary-custom mt-4 text-center">Projekt starten</a>
+  </div>
+</div>
+
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
+<main class="page-main">
+  <div class="site-container">
+
+    <!-- Page Header -->
+    <header class="mb-5" data-reveal>
+      <h1 class="t-display mb-2" style="color:var(--color-on-surface);">Insights &amp; Innovation</h1>
+      <p class="t-body-lg" style="color:var(--color-on-surface-variant);">
+        Gedanken zu KI-Architektur, Cloud-Skalierung und der Zukunft von Enterprise-Software.
+      </p>
+    </header>
+
+    <!-- Two-column layout: sidebar + content -->
+    <div class="row g-5">
+
+      <!-- Sidebar -->
+      <aside class="col-12 col-lg-3 order-2 order-lg-1" aria-label="Blog-Filter">
+        <div class="position-sticky" style="top:88px;">
+
+          <!-- Search -->
+          <div class="sidebar-search mb-4" data-reveal>
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input type="search" placeholder="Artikel suchen..." aria-label="Artikel suchen">
+          </div>
+
+          <!-- Categories -->
+          <div data-reveal>
+            <h3 class="t-label-sm mb-3" style="color:var(--color-on-surface-variant);">Kategorien</h3>
+            <div class="d-flex flex-row flex-lg-column flex-wrap gap-1">
+              <button class="category-btn category-btn--active">Alle</button>
+              <button class="category-btn">Cloud</button>
+              <button class="category-btn">KI</button>
+              <button class="category-btn">Architektur</button>
+              <button class="category-btn">Sicherheit</button>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Content area -->
+      <div class="col-12 col-lg-9 order-1 order-lg-2">
+
+        <!-- Featured Post -->
+        <article class="blog-featured mb-5" aria-label="Hauptartikel" data-reveal>
+          <div class="row g-0">
+            <div class="col-12 col-md-7 blog-featured__img" style="min-height:280px;">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBra22evMvR1FlB_Jiowef980JBFpBpQksjGmrXB9kmCFFg_Vy1sgs1tejuyzR3NSps1aXgM_apX4zWAY6HhMP_-Py9byOopGBxAYHi7SyRX-q5sObj6ZnLdHM149bj2tS0cOi7MpxZIlWC2ujY1vFvGgraCax8psLtMPsLP6SAkgdic9u1RSohwSiQ_9QmT-qvEaKQ0PwNcbU77mPpvg_pUPQ3zWCHyhLLqNvMY0rRxH4BNw8OeKjjxfQPvEMhARHpAh_9ugdZICk9"
+                   alt="Multi-Agent Systems"
+                   style="width:100%;height:100%;object-fit:cover;min-height:280px;">
+            </div>
+            <div class="col-12 col-md-5 p-4 p-lg-5 d-flex flex-column justify-content-center">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="category-pill category-pill--featured">KI-Strategie</span>
+                <span class="t-label-sm" style="color:var(--color-on-surface-variant);">8 min read</span>
+              </div>
+              <h2 class="t-headline-lg mb-3" style="color:var(--color-on-surface);">
+                Die Zukunft von Multi-Agent-Systemen in der Cloud
+              </h2>
+              <p class="t-body-md mb-4 line-clamp-3" style="color:var(--color-on-surface-variant);">
+                Entdecken Sie, wie autonome Agenten-Cluster die Cloud-Infrastruktur revolutionieren und warum Multi-Agent-Systeme der nächste logische Schritt in der Evolution der Unternehmens-KI sind.
+              </p>
+              <div class="d-flex align-items-center justify-content-between mt-auto">
+                <span class="t-label-sm" style="color:var(--color-on-surface-variant);">15. Mai 2024</span>
+                <a href="#" class="d-inline-flex align-items-center gap-1 t-label-md" style="color:var(--color-primary);">
+                  Beitrag lesen
+                  <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post Grid -->
+        <div class="row g-4">
+
+          <!-- Post 1 -->
+          <div class="col-12 col-md-6 col-xl-4" data-reveal>
+            <article class="blog-card h-100">
+              <div style="height:192px;overflow:hidden;">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ2DYJwmS2Ks7dsB07HFdm1rDO-Uc0HQPxGtt6vqycG1Ll-U7YUejcyFXXILgbezAN0ZJPvx_wbzbRY7dYgKXZykU41TfZoftM1bDQ4SPdpN7R2odS6Ut0v_uES75axEdX0mrxJnmdko46XdvwHejzCtMBYGVxjoCypLxzndfGuPw1HHCjA4xsztnun0EivSoTKdKV8EeMJYTx28tov7S2PiukdSZRCsInW8qH42iZDSSH3iTNQiXf-zCUksFTMPmSSmxHXNWXS_rA"
+                     alt="RAG vs Fine-Tuning"
+                     style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="p-4 d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="category-pill">Machine Learning</span>
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">5 min</span>
+                </div>
+                <h3 class="t-title-md mb-2" style="color:var(--color-on-surface);">RAG vs. Fine-Tuning: Wann lohnt sich was?</h3>
+                <p class="t-body-md mb-4 line-clamp-2 flex-grow-1" style="color:var(--color-on-surface-variant);">
+                  Eine detaillierte Analyse der Vor- und Nachteile beider Ansätze für moderne LLM-Implementierungen.
+                </p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">12. Mai 2024</span>
+                  <a href="#" class="d-inline-flex align-items-center gap-1 t-label-md" style="color:var(--color-primary);">
+                    Lesen <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 2 -->
+          <div class="col-12 col-md-6 col-xl-4" data-reveal>
+            <article class="blog-card h-100">
+              <div style="height:192px;overflow:hidden;">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_-yPkORlAgf7guVjbsZtMFppYVp2WOF7CHntbYV8Qd-gpcoyW5xVYK3VeO-gC0SQpEONY07VPMF2pz1zkwLeaq2SfvgSrrLvrbNnevchvi-rzZuqGpOaDKXUzdWRBhP_o0Dn6S2PK6f_bbkeu3i56qMrq9QIGnfzpgRpidOXsp7p-l6u7l5qoR3ZAilyq3kvKdLNJf_bbkeu3i56"
+                     alt="Serverless vs Kubernetes"
+                     style="width:100%;height:100%;object-fit:cover;background:var(--color-surface-container);">
+              </div>
+              <div class="p-4 d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="category-pill">Cloud Architecture</span>
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">10 min</span>
+                </div>
+                <h3 class="t-title-md mb-2" style="color:var(--color-on-surface);">Serverless vs. Kubernetes: Kosten für LLMs</h3>
+                <p class="t-body-md mb-4 line-clamp-2 flex-grow-1" style="color:var(--color-on-surface-variant);">
+                  Strategien zur Kostenoptimierung beim Deployment von Large Language Models in skalierten Umgebungen.
+                </p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">08. Mai 2024</span>
+                  <a href="#" class="d-inline-flex align-items-center gap-1 t-label-md" style="color:var(--color-primary);">
+                    Lesen <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="col-12 col-md-6 col-xl-4" data-reveal>
+            <article class="blog-card h-100">
+              <div style="height:192px;overflow:hidden;background:var(--color-surface-container);">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO_I_IuN-A-vLp63H9V6WSDkAc1Q5n9HlmScTCXvxz2oDMvv-ZRkPjU0WTflniN0k60rqzKtCAcf_zmskbxNkOQ1SiAXB_FY10tXtjv6NKyoAUxQfDAeKcmfh-59r8BSYIZ4HwGOtNDbjj05YNqRqYHIR20apwzM5HXqoxWANBzMxyVV_ZAUmOipMxB-AdwV5-kQmjkFLSBgVzTEGNoe9KWy6Kr6Xk52B6Jd-1Hv38EPsmlDIazBtvFLjzwPnaCt4VFLSrn_2qlDVQ"
+                     alt="AI Security"
+                     style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="p-4 d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="category-pill">Cybersecurity</span>
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">7 min</span>
+                </div>
+                <h3 class="t-title-md mb-2" style="color:var(--color-on-surface);">Security by Design: KI sicher ausliefern</h3>
+                <p class="t-body-md mb-4 line-clamp-2 flex-grow-1" style="color:var(--color-on-surface-variant);">
+                  Wie man KI-Modelle resilient gegen Angriffe macht und Compliance-Richtlinien im Enterprise-Kontext erfüllt.
+                </p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">02. Mai 2024</span>
+                  <a href="#" class="d-inline-flex align-items-center gap-1 t-label-md" style="color:var(--color-primary);">
+                    Lesen <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post 4 (bonus) -->
+          <div class="col-12 col-md-6 col-xl-4" data-reveal>
+            <article class="blog-card h-100">
+              <div style="height:192px;overflow:hidden;background:var(--color-surface-container);display:flex;align-items:center;justify-content:center;">
+                <span class="material-symbols-outlined" style="font-size:64px;color:var(--color-primary);opacity:0.4;">edit_note</span>
+              </div>
+              <div class="p-4 d-flex flex-column flex-grow-1">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <span class="category-pill">MLOps</span>
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">6 min</span>
+                </div>
+                <h3 class="t-title-md mb-2" style="color:var(--color-on-surface);">Modell-Monitoring in der Produktion</h3>
+                <p class="t-body-md mb-4 line-clamp-2 flex-grow-1" style="color:var(--color-on-surface-variant);">
+                  Welche Metriken wirklich wichtig sind, wenn KI-Modelle im Live-Betrieb überwacht werden müssen.
+                </p>
+                <div class="d-flex align-items-center justify-content-between mt-auto">
+                  <span class="t-label-sm" style="color:var(--color-on-surface-variant);">27. Apr. 2024</span>
+                  <a href="#" class="d-inline-flex align-items-center gap-1 t-label-md" style="color:var(--color-primary);">
+                    Lesen <span class="material-symbols-outlined" style="font-size:16px;">chevron_right</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /post grid -->
+
+        <!-- Load More -->
+        <div class="text-center mt-5" data-reveal>
+          <button class="btn-ghost" style="border-radius:8px;font-size:15px;padding:12px 40px;border-color:var(--color-primary);color:var(--color-primary);">
+            Mehr Artikel laden
+          </button>
+        </div>
+
+      </div><!-- /content -->
+
+    </div><!-- /two-column -->
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Seitenfuß">
+  <div class="site-container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4 col-lg-3">
+        <div class="t-title-md font-sora mb-3" style="color:var(--color-primary);">ARCHITECT.AI</div>
+        <p class="t-body-md" style="color:var(--color-on-surface-variant);">Präzision in der Architektur. Innovation in der Cloud.</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h4 class="t-label-sm mb-4" style="color:var(--color-on-surface);">Navigation</h4>
+        <div class="d-flex flex-column gap-2">
+          <a href="projekte.html" class="site-footer__link">Projekte</a>
+          <a href="ueber-mich.html" class="site-footer__link">Über mich</a>
+          <a href="blog.html" class="site-footer__link">Blog</a>
+          <a href="kontakt.html" class="site-footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <h4 class="t-label-sm mb-4" style="color:var(--color-on-surface);">Ressourcen</h4>
+        <div class="d-flex flex-column gap-2">
+          <a href="#" class="site-footer__link">Impressum</a>
+          <a href="#" class="site-footer__link">Datenschutz</a>
+          <a href="#" class="site-footer__link">RSS Feed</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-3">
+        <h4 class="t-label-sm mb-4" style="color:var(--color-on-surface);">Social</h4>
+        <div class="d-flex gap-2 mb-4">
+          <a href="#" class="social-btn" aria-label="LinkedIn"><span class="material-symbols-outlined">link</span></a>
+          <a href="#" class="social-btn" aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
+          <a href="#" class="social-btn" aria-label="E-Mail"><span class="material-symbols-outlined">mail</span></a>
+        </div>
+        <p class="t-label-md" style="color:var(--color-on-surface-variant);">© 2025 ARCHITECT.AI. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

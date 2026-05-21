@@ -1,0 +1,133 @@
+/* =========================================
+   Design Tokens — CSS Custom Properties
+   Architectural Intelligence (dark)
+   Luminous Precision (light)
+   ========================================= */
+
+/* Light theme is the default — also applied when data-theme="light" */
+:root,
+[data-theme="light"] {
+  /* Surfaces */
+  --color-bg:               #faf8ff;
+  --color-surface:          #faf8ff;
+  --color-surface-bright:   #faf8ff;
+  --color-surface-lowest:   #ffffff;
+  --color-surface-low:      #f2f3ff;
+  --color-surface-container:#eaedff;
+  --color-surface-high:     #e2e7ff;
+  --color-surface-highest:  #dae2fd;
+  --color-surface-dim:      #d2d9f4;
+  --color-surface-variant:  #dae2fd;
+
+  /* On-surface */
+  --color-on-surface:         #131b2e;
+  --color-on-surface-variant: #434655;
+
+  /* Primary */
+  --color-primary:              #004ac6;
+  --color-primary-rgb:          0, 74, 198;
+  --color-on-primary:           #ffffff;
+  --color-primary-container:    #2563eb;
+  --color-on-primary-container: #eeefff;
+  --color-primary-fixed:        #dbe1ff;
+
+  /* Secondary / Accent */
+  --color-secondary:              #904d00;
+  --color-secondary-rgb:          144, 77, 0;
+  --color-on-secondary:           #ffffff;
+  --color-secondary-container:    #fe932c;
+  --color-on-secondary-container: #663500;
+
+  /* Outline */
+  --color-outline:         #737686;
+  --color-outline-variant: #c3c6d7;
+
+  /* Elevation */
+  --elevation-1: 0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px var(--color-outline-variant);
+  --elevation-2: 0 4px 20px rgba(115, 118, 134, 0.14);
+  --glow-primary: none;
+
+  /* Spacing */
+  --margin-desktop: 80px;
+  --margin-mobile:  20px;
+
+  /* Bootstrap CSS variable overrides */
+  --bs-body-bg:            var(--color-bg);
+  --bs-body-color:         var(--color-on-surface);
+  --bs-primary:            var(--color-primary);
+  --bs-primary-rgb:        0, 74, 198;
+  --bs-link-color:         var(--color-primary);
+  --bs-link-hover-color:   var(--color-primary-container);
+  --bs-border-color:       var(--color-outline-variant);
+  --bs-card-bg:            var(--color-surface-bright);
+  --bs-card-border-color:  var(--color-outline-variant);
+  --bs-secondary-bg:       var(--color-surface-container);
+  --bs-tertiary-bg:        var(--color-surface-low);
+
+  /* Form controls */
+  --bs-body-color-rgb:     19, 27, 46;
+  --bs-form-control-bg:    var(--color-surface-bright);
+}
+
+/* Dark theme — Architectural Intelligence */
+[data-theme="dark"] {
+  /* Surfaces */
+  --color-bg:               #031427;
+  --color-surface:          #031427;
+  --color-surface-bright:   #2a3a4f;
+  --color-surface-lowest:   #000f21;
+  --color-surface-low:      #0b1c30;
+  --color-surface-container:#102034;
+  --color-surface-high:     #1b2b3f;
+  --color-surface-highest:  #26364a;
+  --color-surface-dim:      #031427;
+  --color-surface-variant:  #26364a;
+
+  /* On-surface */
+  --color-on-surface:         #d3e4fe;
+  --color-on-surface-variant: #c2c6d6;
+
+  /* Primary */
+  --color-primary:              #adc6ff;
+  --color-primary-rgb:          173, 198, 255;
+  --color-on-primary:           #002e6a;
+  --color-primary-container:    #4d8eff;
+  --color-on-primary-container: #00285d;
+  --color-primary-fixed:        #d8e2ff;
+
+  /* Secondary / Accent */
+  --color-secondary:              #ffb95f;
+  --color-secondary-rgb:          255, 185, 95;
+  --color-on-secondary:           #472a00;
+  --color-secondary-container:    #ee9800;
+  --color-on-secondary-container: #5b3800;
+
+  /* Outline */
+  --color-outline:         #8c909f;
+  --color-outline-variant: #424754;
+
+  /* Elevation */
+  --elevation-1: 0 0 0 1px var(--color-outline-variant);
+  --elevation-2: 0 4px 24px rgba(173, 198, 255, 0.08);
+  --glow-primary: 0 0 32px rgba(173, 198, 255, 0.12);
+
+  /* Bootstrap CSS variable overrides for dark mode */
+  --bs-body-bg:            var(--color-bg);
+  --bs-body-color:         var(--color-on-surface);
+  --bs-primary:            var(--color-primary);
+  --bs-primary-rgb:        173, 198, 255;
+  --bs-link-color:         var(--color-primary);
+  --bs-link-hover-color:   var(--color-primary-container);
+  --bs-border-color:       var(--color-outline-variant);
+  --bs-card-bg:            var(--color-surface-high);
+  --bs-card-border-color:  var(--color-outline-variant);
+  --bs-secondary-bg:       var(--color-surface-container);
+  --bs-tertiary-bg:        var(--color-surface-low);
+
+  --bs-body-color-rgb:     211, 228, 254;
+  --bs-form-control-bg:    var(--color-surface-container);
+
+  /* Dark mode offcanvas / modals */
+  --bs-offcanvas-bg:       var(--color-surface-lowest);
+  --bs-offcanvas-color:    var(--color-on-surface);
+}
