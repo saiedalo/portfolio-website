@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | COELN.AI</title>
+  <title>Kontakt | COELN.DEV</title>
   <meta name="description" content="Lassen Sie uns über Ihr KI-Projekt sprechen. Antwort innerhalb von 24 Stunden.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
     <div class="site-nav__inner">
       <a href="index.html" class="site-nav__brand">
         <span class="material-symbols-outlined site-nav__brand-icon">terminal</span>
-        COELN.AI
+        COELN.DEV
       </a>
       <ul class="site-nav__links d-none d-lg-flex">
         <li><a href="projekte.html" class="site-nav__link">Projekte</a></li>
@@ -54,7 +54,7 @@
 
 <div class="offcanvas offcanvas-end site-offcanvas" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
   <div class="offcanvas-header">
-    <span class="t-title-md font-sora" style="color:var(--color-primary);" id="mobileNavLabel">COELN.AI</span>
+    <span class="t-title-md font-sora" style="color:var(--color-primary);" id="mobileNavLabel">COELN.DEV</span>
     <button type="button" class="btn-icon" data-bs-dismiss="offcanvas" aria-label="Schließen">
       <span class="material-symbols-outlined">close</span>
     </button>
@@ -92,77 +92,43 @@
     <!-- Two-column: form + contact info -->
     <div class="row g-4 g-lg-5 mb-5">
 
-      <!-- Contact Form -->
+      <!-- Contact Info Box (Formular wird demnächst aktiviert) -->
       <div class="col-12 col-lg-8" data-reveal>
-        <div class="p-4 p-lg-5 rounded-3"
+        <div class="p-4 p-lg-5 rounded-3 h-100 d-flex flex-column justify-content-center"
              style="background:var(--color-surface-lowest);border:1px solid var(--color-outline-variant);box-shadow:var(--elevation-1);">
 
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="row g-4">
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="contact-name">Name</label>
-                  <input type="text" id="contact-name" class="form-control" placeholder="Ihr Name" required>
-                  <div class="invalid-feedback">Bitte geben Sie Ihren Namen ein.</div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="contact-email">E-Mail</label>
-                  <input type="email" id="contact-email" class="form-control" placeholder="mail@beispiel.de" required>
-                  <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
-                </div>
-              </div>
-            </div>
+          <span class="material-symbols-outlined mb-4" style="font-size:40px;color:var(--color-secondary);">mail</span>
+          <h2 class="t-headline-md mb-3" style="color:var(--color-on-surface);">Direkt Kontakt aufnehmen</h2>
+          <p class="t-body-lg mb-5" style="color:var(--color-on-surface-variant);">
+            Für direkte Projektanfragen stehe ich per E-Mail und LinkedIn zur Verfügung.
+          </p>
 
-            <div class="row g-4">
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="contact-type">Projekttyp</label>
-                  <select id="contact-type" class="form-select" required>
-                    <option value="" disabled selected>Bitte wählen...</option>
-                    <option>KI-Architektur &amp; Consulting</option>
-                    <option>Full-Stack Entwicklung</option>
-                    <option>Data Engineering</option>
-                    <option>Andere</option>
-                  </select>
-                  <div class="invalid-feedback">Bitte wählen Sie einen Projekttyp.</div>
-                </div>
+          <div class="d-flex flex-column gap-3">
+            <a href="mailto:contact@coeln.dev" class="contact-info-card">
+              <span class="material-symbols-outlined">mail</span>
+              <div>
+                <span class="t-label-sm d-block" style="color:var(--color-on-surface-variant);">E-Mail</span>
+                <span class="t-body-md" style="font-weight:700;color:var(--color-on-surface);">contact@coeln.dev</span>
               </div>
-              <div class="col-12 col-md-6">
-                <div class="form-group">
-                  <label for="contact-budget">Budgetrahmen</label>
-                  <select id="contact-budget" class="form-select">
-                    <option>5.000€ – 15.000€</option>
-                    <option>15.000€ – 50.000€</option>
-                    <option>50.000€ +</option>
-                    <option>Auf Stundenbasis</option>
-                  </select>
-                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/sai-alo/" class="contact-info-card" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined">account_circle</span>
+              <div>
+                <span class="t-label-sm d-block" style="color:var(--color-on-surface-variant);">LinkedIn</span>
+                <span class="t-body-md" style="font-weight:700;color:var(--color-on-surface);">linkedin.com/in/sai-alo</span>
               </div>
-            </div>
-
-            <div class="form-group">
-              <label for="contact-message">Nachricht</label>
-              <textarea id="contact-message" class="form-control" rows="6"
-                        placeholder="Beschreiben Sie kurz Ihr Vorhaben..." required></textarea>
-              <div class="invalid-feedback">Bitte beschreiben Sie Ihr Vorhaben.</div>
-            </div>
-
-            <button type="submit" class="btn-cta" style="font-size:17px;padding:14px 36px;margin-top:8px;">
-              Nachricht absenden
-              <span class="material-symbols-outlined" style="font-size:20px;">send</span>
-            </button>
-          </form>
-
-          <div id="form-success" class="form-success" role="alert">
-            <span class="material-symbols-outlined" style="font-size:36px;display:block;margin-bottom:12px;">check_circle</span>
-            <strong>Vielen Dank!</strong><br>
-            Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich innerhalb von 24 Stunden bei Ihnen.
+            </a>
           </div>
 
         </div>
       </div>
+
+      <!--
+      FORM (deaktiviert — Aktivierung mit Formspree: action="https://formspree.io/f/DEIN-KEY" eintragen)
+      <form id="contact-form" class="contact-form" novalidate>
+        ... Formular-Felder ...
+      </form>
+      -->
 
       <!-- Direct Contact & Security -->
       <div class="col-12 col-lg-4" data-reveal>
@@ -170,11 +136,11 @@
              style="background:var(--color-surface-high);border:1px solid var(--color-outline-variant);">
           <h3 class="t-title-md mb-4" style="color:var(--color-primary);">Direkter Kontakt</h3>
           <div class="d-flex flex-column gap-3">
-            <a href="mailto:contact@ai-architect.dev" class="contact-info-card">
+            <a href="mailto:contact@coeln.dev" class="contact-info-card">
               <span class="material-symbols-outlined">mail</span>
               <div>
                 <span class="t-label-sm d-block" style="color:var(--color-on-surface-variant);">E-Mail</span>
-                <span class="t-body-md" style="font-weight:700;color:var(--color-on-surface);">contact@ai-architect.dev</span>
+                <span class="t-body-md" style="font-weight:700;color:var(--color-on-surface);">contact@coeln.dev</span>
               </div>
             </a>
             <a href="https://www.linkedin.com/in/sai-alo/" class="contact-info-card" target="_blank" rel="noopener noreferrer">
@@ -272,7 +238,7 @@
   <div class="site-container">
     <div class="row g-4">
       <div class="col-12 col-md-4 col-lg-3">
-        <div class="t-title-md font-sora mb-3" style="color:var(--color-primary);">COELN.AI</div>
+        <div class="t-title-md font-sora mb-3" style="color:var(--color-primary);">COELN.DEV</div>
         <p class="t-body-md" style="color:var(--color-on-surface-variant);">Präzisions-Engineering für die nächste Generation von KI-Lösungen.</p>
       </div>
       <div class="col-6 col-md-2">
@@ -297,9 +263,9 @@
         <div class="d-flex gap-2 mb-4">
           <a href="https://www.linkedin.com/in/sai-alo/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">link</span></a>
           <a href="https://github.com/saiedalo" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">code</span></a>
-          <a href="#" class="social-btn" aria-label="E-Mail"><span class="material-symbols-outlined">mail</span></a>
+          <a href="mailto:contact@coeln.dev" class="social-btn" aria-label="E-Mail"><span class="material-symbols-outlined">mail</span></a>
         </div>
-        <p class="t-label-md" style="color:var(--color-on-surface-variant);">© 2025 COELN.AI. Alle Rechte vorbehalten.</p>
+        <p class="t-label-md" style="color:var(--color-on-surface-variant);">© 2025 COELN.DEV. Alle Rechte vorbehalten.</p>
       </div>
     </div>
   </div>

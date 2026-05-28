@@ -725,7 +725,7 @@ test.describe('Responsive layout', () => {
 test.describe('Cross-page navigation', () => {
 
   const pages = [
-    { url: 'index.html',     title: 'COELN.AI' },
+    { url: 'index.html',     title: 'COELN.DEV' },
     { url: 'ueber-mich.html', title: 'Über mich' },
     { url: 'projekte.html',  title: 'Projekte' },
     { url: 'blog.html',      title: 'Blog' },
