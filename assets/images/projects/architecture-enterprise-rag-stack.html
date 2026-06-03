@@ -1,0 +1,278 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-surface-variant": "#434654",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f4f6",
+                        "surface-tint": "#0c56d0",
+                        "surface": "#f8f9fb",
+                        "surface-container-high": "#e7e8ea",
+                        "tertiary-fixed": "#dae3ee",
+                        "outline": "#737685",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#101c2d",
+                        "tertiary-fixed-dim": "#bec7d2",
+                        "inverse-surface": "#2e3132",
+                        "error": "#ba1a1a",
+                        "secondary": "#535f73",
+                        "inverse-primary": "#b2c5ff",
+                        "secondary-fixed-dim": "#bbc7de",
+                        "on-tertiary-fixed": "#141c24",
+                        "on-background": "#191c1e",
+                        "tertiary": "#3c454d",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary-container": "#535c65",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-secondary-container": "#576377",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-fixed": "#d7e3fb",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-container": "#c4d2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#0052cc",
+                        "outline-variant": "#c3c6d6",
+                        "on-primary-fixed": "#001848",
+                        "inverse-on-surface": "#f0f1f3",
+                        "secondary-container": "#d4e0f8",
+                        "surface-container": "#edeef0",
+                        "on-secondary-fixed-variant": "#3b475b",
+                        "surface-dim": "#d9dadc",
+                        "primary": "#003d9b",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#cbd4df",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f4850",
+                        "background": "#f8f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "max-width": "1440px",
+                        "sm": "8px",
+                        "xl": "40px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .canvas-grid {
+            background-image: radial-gradient(circle, #D1D5DB 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .flow-line {
+            position: relative;
+        }
+        .flow-line::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #737685;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .arrow-down::after {
+            content: '▼';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #737685;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Main Sidebar (Shared Component) -->
+
+<!-- Main Canvas Content -->
+<main class="min-h-screen flex flex-col items-center justify-center p-xl canvas-grid overflow-auto">
+<div class="max-w-5xl w-full flex flex-col items-center space-y-12">
+<!-- Layer 1: Client Layer -->
+<div class="relative w-full max-w-lg">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded shadow-sm hover:border-primary transition-all duration-300 z-10 relative">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="devices">devices</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Client Layer</h2>
+</div>
+<div class="flex flex-wrap gap-sm">
+<span class="bg-surface-container px-md py-xs rounded font-label-sm text-label-sm border border-outline-variant">User Interface</span>
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded font-label-sm text-label-sm">Vanilla JS</span>
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded font-label-sm text-label-sm">HTML/CSS</span>
+</div>
+</div>
+<!-- Connector Down -->
+<div class="absolute -bottom-12 left-1/2 w-[2px] h-12 bg-outline-variant arrow-down"></div>
+</div>
+<!-- Layer 2: Backend API -->
+<div class="relative w-full max-w-2xl mt-12">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded shadow-sm hover:border-primary transition-all duration-300 z-10 relative">
+<div class="flex items-center justify-between mb-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="api">api</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">FastAPI Backend</h2>
+</div>
+<span class="text-[10px] font-label-md bg-green-100 text-green-800 px-sm py-xs rounded border border-green-200 animate-pulse">RUNNING v2.4.0</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="border border-outline-variant rounded p-md bg-surface-container-low group hover:bg-primary-fixed transition-colors">
+<div class="flex items-center gap-xs mb-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">POST</span>
+</div>
+<code class="font-label-md text-label-md text-primary">/api/query</code>
+</div>
+<div class="border border-outline-variant rounded p-md bg-surface-container-low group hover:bg-primary-fixed transition-colors">
+<div class="flex items-center gap-xs mb-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">GET</span>
+</div>
+<code class="font-label-md text-label-md text-primary">/api/dokumente</code>
+</div>
+<div class="border border-outline-variant rounded p-md bg-surface-container-low group hover:bg-primary-fixed transition-colors">
+<div class="flex items-center gap-xs mb-xs">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface">DELETE</span>
+</div>
+<code class="font-label-md text-label-md text-primary">/api/clear-session</code>
+</div>
+</div>
+</div>
+<!-- Complex Branching Connectors -->
+<div class="absolute -bottom-12 left-1/2 w-[2px] h-12 bg-outline-variant"></div>
+<div class="absolute -bottom-12 left-[15%] right-[15%] h-[2px] bg-outline-variant"></div>
+<div class="absolute -bottom-24 left-[15%] w-[2px] h-12 bg-outline-variant arrow-down"></div>
+<div class="absolute -bottom-24 left-1/2 w-[2px] h-12 bg-outline-variant arrow-down"></div>
+<div class="absolute -bottom-24 right-[15%] w-[2px] h-12 bg-outline-variant arrow-down"></div>
+</div>
+<!-- Layer 3: Core Services -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg w-full mt-12 relative">
+<!-- RAG System -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded shadow-sm hover:border-primary transition-all duration-300 relative group">
+<div class="flex flex-col gap-md">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="neurology">neurology</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">RAG System</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Context retrieval and orchestration engine.</p>
+</div>
+<div class="pt-md border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Status</span>
+<span class="font-label-sm text-label-sm text-primary">Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vector Store -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded shadow-sm hover:border-primary transition-all duration-300 relative group">
+<div class="flex flex-col gap-md">
+<div class="w-10 h-10 rounded bg-tertiary-container flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vector Store</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Embedding storage and semantic search indices.</p>
+</div>
+<div class="pt-md border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Engine</span>
+<span class="font-label-sm text-label-sm text-primary">ChromaDB</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Generator -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded shadow-sm hover:border-primary transition-all duration-300 relative group">
+<div class="flex flex-col gap-md">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Generator</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">LLM integration for response synthesis.</p>
+</div>
+<div class="pt-md border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Model</span>
+<span class="font-label-sm text-label-sm text-primary">Claude Sonnet 4.5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Atmospheric Element -->
+<div class="fixed bottom-0 right-0 p-lg opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[120px]" data-icon="schema">schema</span>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for hover effects on connection lines
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle lift effect handled by tailwind, but could add JS animations here
+            });
+        });
+
+        // Add visual interest with a small "heartbeat" on the status indicators
+        const statusDots = document.querySelectorAll('.bg-green-100');
+        statusDots.forEach(dot => {
+            dot.classList.add('animate-pulse');
+        });
+    </script>
+
+
+</body></html>

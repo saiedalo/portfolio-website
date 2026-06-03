@@ -150,13 +150,13 @@
       </span>
       <h1 class="t-display mb-3" style="color:var(--color-on-surface);">Enterprise RAG Stack</h1>
       <p class="t-body-lg mb-0" style="color:var(--color-on-surface-variant);max-width:640px;margin:0 auto 48px;">
-        Revolutionierung des Wissensmanagements für den Finanzsektor durch eine skalierbare Retrieval-Augmented Generation Architektur.
+        Produktionsreifer RAG-Chatbot für deutsche Finanzinstitute — Claude AI findet per Tool-Calling präzise Antworten in BaFin- und BAIT-Regulatorik.
       </p>
       <div class="mt-5" style="position:relative;">
         <div style="position:absolute;inset:0;background:rgba(var(--color-primary-rgb),0.05);border-radius:12px;filter:blur(48px);"></div>
-        <img src="https://lh3.googleusercontent.com/aida/ADBb0ug_ENTKh-DqUTtliIwAtUIoy41orAe5fwED6RF-cs3GqawC6oHsHq1JtMTfPDZGJ98_y94WIz7cPQUYNyKkChlyEVrpEVZxBzLFBWCemYvv3Qd53x_5INQCkJqYcOpcAgHVjJwINuF9Biqbn67OJOZYSDsW8_Q-GRn-EzG5HUo2grhZMf_oLVljdWMVLklsASzq7XekHYt3lvq_Jck7x0A38jjXP_3t0uj0T7_i3B0vqsuwQbGvdF_ZOYxc"
-             alt="Enterprise RAG Stack Dashboard"
-             style="position:relative;z-index:1;width:100%;border-radius:12px;border:1px solid var(--color-outline-variant);box-shadow:var(--elevation-2);">
+        <iframe src="assets/images/projects/demo-enterprise-rag-stack.html"
+                style="position:relative;z-index:1;width:100%;height:600px;border-radius:12px;border:1px solid var(--color-outline-variant);box-shadow:var(--elevation-2);"
+                title="Enterprise RAG Stack – Live Demo"></iframe>
       </div>
     </div>
   </section>
@@ -202,16 +202,16 @@
                 <h2 class="t-headline-lg mb-0">Lösungsweg</h2>
               </div>
               <p class="t-body-md mb-4" style="color:var(--color-on-primary-container);">
-                Implementierung eines intelligenten RAG-Stacks. Durch die Verbindung von Multi-Agent-Systemen und Hochleistungs-Vektordatenbanken wird Wissen in Echtzeit kontextualisiert und präzise zur Verfügung gestellt.
+                Claude AI entscheidet via Tool-Calling eigenständig, welche Dokumente relevant sind. ChromaDB liefert semantische Ähnlichkeitssuche mit SentenceTransformers — Antworten in unter 200ms mit vollständiger Quellenangabe.
               </p>
               <div class="d-flex gap-3 mt-auto">
                 <div class="solution-stat">
-                  <div class="t-headline-lg">+85%</div>
-                  <div class="t-label-sm" style="opacity:0.8;">Präzision</div>
+                  <div class="t-headline-lg">150ms</div>
+                  <div class="t-label-sm" style="opacity:0.8;">Ø Antwortzeit</div>
                 </div>
                 <div class="solution-stat">
-                  <div class="t-headline-lg">-40%</div>
-                  <div class="t-label-sm" style="opacity:0.8;">Sucheffizienz</div>
+                  <div class="t-headline-lg">>85%</div>
+                  <div class="t-label-sm" style="opacity:0.8;">Test-Abdeckung</div>
                 </div>
               </div>
             </div>
@@ -276,7 +276,7 @@
         <div class="col-12 col-md-4" data-reveal>
           <h2 class="t-headline-lg mb-3" style="color:var(--color-on-surface);">System-Architektur</h2>
           <p class="t-body-md mb-4" style="color:var(--color-on-surface-variant);">
-            Das Herzstück bildet der <strong>Orchestration Layer</strong>. Er fungiert als Dirigent zwischen den LLM-Agenten, den Vektordatenbanken und den Endnutzern.
+            Das Herzstück bildet das <strong>RAG-System</strong> mit FastAPI-Backend. Claude Sonnet 4.5 entscheidet per Tool-Calling eigenständig, welche ChromaDB-Kollektionen durchsucht werden.
           </p>
           <div class="d-flex flex-column gap-4">
             <div class="arch-feature">
@@ -284,8 +284,8 @@
                 <span class="material-symbols-outlined">psychology</span>
               </div>
               <div>
-                <div class="t-label-md mb-1" style="color:var(--color-on-surface);font-weight:700;">LLM-Agenten</div>
-                <div class="t-label-sm" style="color:var(--color-on-surface-variant);">Spezialisierte Modelle für unterschiedliche Analyseaufgaben.</div>
+                <div class="t-label-md mb-1" style="color:var(--color-on-surface);font-weight:700;">Claude Sonnet 4.5</div>
+                <div class="t-label-sm" style="color:var(--color-on-surface-variant);">Tool-Calling für autonome Multi-Round-Suche und Antwort-Synthese mit Quellenangabe.</div>
               </div>
             </div>
             <div class="arch-feature">
@@ -293,8 +293,8 @@
                 <span class="material-symbols-outlined">database</span>
               </div>
               <div>
-                <div class="t-label-md mb-1" style="color:var(--color-on-surface);font-weight:700;">Vector DBs</div>
-                <div class="t-label-sm" style="color:var(--color-on-surface-variant);">Hocheffiziente Speicherung semantischer Informationen.</div>
+                <div class="t-label-md mb-1" style="color:var(--color-on-surface);font-weight:700;">ChromaDB + SentenceTransformers</div>
+                <div class="t-label-sm" style="color:var(--color-on-surface-variant);">Dual-Collection-Architektur mit 800-Zeichen-Chunks für präzise semantische Ähnlichkeitssuche.</div>
               </div>
             </div>
           </div>
@@ -302,9 +302,9 @@
 
         <div class="col-12 col-md-8" data-reveal>
           <div class="card-surface p-2">
-            <img src="https://lh3.googleusercontent.com/aida/ADBb0ug1NY2R4KO6vXRPnZqhX3JarsXaBrlKXzUz0kyjTnM1pfBiE_H2V3APp8paawGithY0RJd3h1WC6XAfGSWx0xUtxJmXUmAi534upmkdjJORYpJsAkyjtP1HVAT9Y074jb4iAc_WpMSRCzJXKWg8TxuqzivX5VbLhI7tk7-NZtRZ3mnV8MBEWLJ4CC-7lIMqzZ-AmuZUgNovbZD5v6UsmbYcwArG_MDH8ucuultjWkUScKYUwQLv9A1kmy4"
-                 alt="System-Architektur: KI-Orchestrierungsschicht mit LLM-Agenten und Vektordatenbanken"
-                 style="width:100%;height:auto;border-radius:8px;">
+            <iframe src="assets/images/projects/architecture-enterprise-rag-stack.html"
+                    style="width:100%;height:600px;border:none;border-radius:8px;"
+                    title="System-Architektur: Enterprise RAG Stack"></iframe>
           </div>
         </div>
 
@@ -323,23 +323,27 @@
           <div class="d-flex flex-wrap gap-2">
             <span class="pill-tag d-flex align-items-center gap-2">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
-              Python / FastAPI
+              Python 3.13 / FastAPI
             </span>
             <span class="pill-tag d-flex align-items-center gap-2">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
-              LangChain / LlamaIndex
+              Claude Sonnet 4.5
             </span>
             <span class="pill-tag d-flex align-items-center gap-2">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
-              Pinecone Vector DB
+              ChromaDB
             </span>
             <span class="pill-tag d-flex align-items-center gap-2">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
-              AWS Infrastructure
+              SentenceTransformers
             </span>
             <span class="pill-tag d-flex align-items-center gap-2">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
-              React / Tailwind CSS
+              Vanilla JS / HTML
+            </span>
+            <span class="pill-tag d-flex align-items-center gap-2">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;"></span>
+              uv
             </span>
           </div>
         </div>
@@ -350,26 +354,26 @@
           <div class="row g-3">
             <div class="col-6">
               <div class="result-card">
-                <div class="t-headline-lg" style="color:var(--color-primary);">-40%</div>
-                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Suchzeit pro Analyst</div>
+                <div class="t-headline-lg" style="color:var(--color-primary);">150ms</div>
+                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Ø Antwortzeit</div>
               </div>
             </div>
             <div class="col-6">
               <div class="result-card">
-                <div class="t-headline-lg" style="color:var(--color-primary);">99.8%</div>
-                <div class="t-label-md" style="color:var(--color-on-surface-variant);">System Uptime</div>
+                <div class="t-headline-lg" style="color:var(--color-primary);">>85%</div>
+                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Test-Abdeckung</div>
               </div>
             </div>
             <div class="col-6">
               <div class="result-card">
-                <div class="t-headline-lg" style="color:var(--color-primary);">24/7</div>
-                <div class="t-label-md" style="color:var(--color-on-surface-variant);">KI-Assistent Verfügbarkeit</div>
+                <div class="t-headline-lg" style="color:var(--color-primary);">6-7/s</div>
+                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Queries pro Sekunde</div>
               </div>
             </div>
             <div class="col-6">
               <div class="result-card">
-                <div class="t-headline-lg" style="color:var(--color-primary);">Zero</div>
-                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Data Leakage Incidents</div>
+                <div class="t-headline-lg" style="color:var(--color-primary);">2×</div>
+                <div class="t-label-md" style="color:var(--color-on-surface-variant);">Suchrunden pro Query</div>
               </div>
             </div>
           </div>
