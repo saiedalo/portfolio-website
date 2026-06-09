@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="light" lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KI-Support-Wissensassistent | Architekturübersicht</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#434655",
+                    "surface-container-highest": "#dae2fd",
+                    "tertiary": "#943700",
+                    "on-primary-fixed": "#00174b",
+                    "inverse-on-surface": "#eef0ff",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "inverse-surface": "#283044",
+                    "secondary-container": "#fe932c",
+                    "primary-container": "#2563eb",
+                    "background": "#faf8ff",
+                    "surface-container-high": "#e2e7ff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-background": "#131b2e",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "surface-dim": "#d2d9f4",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "primary": "#004ac6",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-variant": "#dae2fd",
+                    "outline-variant": "#c3c6d7",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffede6",
+                    "on-primary-container": "#eeefff",
+                    "tertiary-container": "#bc4800",
+                    "outline": "#737686",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eaedff",
+                    "surface-tint": "#0053db",
+                    "surface-container-low": "#f2f3ff",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-container": "#663500",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#faf8ff",
+                    "secondary": "#904d00",
+                    "inverse-primary": "#b4c5ff",
+                    "on-secondary-fixed": "#2f1500",
+                    "on-surface": "#131b2e",
+                    "secondary-fixed": "#ffdcc3",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "error": "#ba1a1a",
+                    "surface": "#faf8ff",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "on-tertiary": "#ffffff"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "xs": "4px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xl": "64px",
+                    "margin-desktop": "48px",
+                    "margin-mobile": "16px"
+                },
+                "fontFamily": {
+                    "label-sm": ["DM Sans"],
+                    "title-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-lg": ["DM Sans"],
+                    "label-md": ["DM Sans"],
+                    "display-lg": ["Sora"],
+                    "body-md": ["DM Sans"],
+                    "headline-lg-mobile": ["Sora"]
+                },
+                "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                }
+            },
+        },
+    }
+</script>
+<style>
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #faf8ff;
+        color: #131b2e;
+        scroll-behavior: smooth;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(226, 231, 255, 0.5);
+    }
+    .sidebar-sticky {
+        top: 100px;
+    }
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<!-- Navigation -->
+<nav class="w-full top-0 sticky bg-surface shadow-sm z-50">
+    <div class="flex justify-between items-center px-margin-desktop h-20 max-w-[1440px] mx-auto">
+        <div class="flex items-center gap-sm">
+            <span class="font-display-lg text-title-md font-bold text-primary">COELN.DEV</span>
+        </div>
+        <div class="hidden md:flex items-center gap-lg">
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="../../projekte.html">Projekte</a>
+            <a class="font-label-md text-primary border-b-2 border-primary font-bold pb-1" href="#">Architektur</a>
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="../../ueber-mich.html">Über mich</a>
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="../../blog.html">Blog</a>
+            <a href="../../kontakt.html" class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md hover:opacity-90 transition-opacity">Projekt starten</a>
+        </div>
+        <button class="md:hidden text-on-surface">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+</nav>
+
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+
+    <!-- Breadcrumb & Hero -->
+    <header class="mb-xl">
+        <nav class="flex items-center gap-xs text-on-surface-variant mb-md font-label-sm">
+            <a class="hover:text-primary" href="../../projekte.html">Projekte</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-primary font-bold">KI-Support-Wissensassistent</span>
+        </nav>
+        <div class="flex flex-col gap-sm max-w-4xl">
+            <h1 class="font-headline-lg text-headline-lg md:text-display-lg text-on-background leading-tight">
+                KI-Support-Wissensassistent — <span class="text-primary">Architekturübersicht</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+                Eine cloud-native, RAG-gestützte Intelligenzschicht, die fragmentierte technische Dokumentation in ein kohärentes, konversationelles Support-Ökosystem vereint. Entwickelt für Skalierbarkeit, Sicherheit und Präzision.
+            </p>
+        </div>
+    </header>
+
+    <div class="flex flex-col lg:flex-row gap-xl relative">
+
+        <!-- Seitenleiste / Inhaltsverzeichnis -->
+        <aside class="lg:w-64 flex-shrink-0">
+            <div class="sidebar-sticky sticky flex flex-col gap-base p-md bg-surface-container-low rounded-xl">
+                <div class="flex items-center gap-sm mb-sm">
+                    <span class="material-symbols-outlined text-primary">architecture</span>
+                    <span class="font-title-md text-label-md font-semibold text-on-surface">RAG-System</span>
+                </div>
+                <a class="flex items-center gap-sm px-sm py-xs bg-primary-container text-on-primary-container font-bold rounded-lg transition-all active:scale-95" href="#zusammenfassung">
+                    <span class="material-symbols-outlined text-[20px]">info</span>
+                    <span class="font-label-md">Zusammenfassung</span>
+                </a>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-dim rounded-lg transition-all active:scale-95" href="#architektur">
+                    <span class="material-symbols-outlined text-[20px]">architecture</span>
+                    <span class="font-label-md">Architektur</span>
+                </a>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-dim rounded-lg transition-all active:scale-95" href="#komponenten">
+                    <span class="material-symbols-outlined text-[20px]">settings_input_component</span>
+                    <span class="font-label-md">Komponenten</span>
+                </a>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-dim rounded-lg transition-all active:scale-95" href="#datenfluesse">
+                    <span class="material-symbols-outlined text-[20px]">swap_calls</span>
+                    <span class="font-label-md">Datenflüsse</span>
+                </a>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-dim rounded-lg transition-all active:scale-95" href="#erweiterungen">
+                    <span class="material-symbols-outlined text-[20px]">extension</span>
+                    <span class="font-label-md">Erweiterungen</span>
+                </a>
+                <a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-dim rounded-lg transition-all active:scale-95" href="#sicherheit">
+                    <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                    <span class="font-label-md">Sicherheit</span>
+                </a>
+                <hr class="border-outline-variant my-xs"/>
+                <a href="../../projekte.html" class="flex items-center justify-center gap-xs font-label-md text-primary mt-xs py-xs hover:underline">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    Zur Übersicht
+                </a>
+            </div>
+        </aside>
+
+        <!-- Hauptinhalt -->
+        <div class="flex-grow space-y-xl">
+
+            <!-- Technisches Diagramm -->
+            <section class="scroll-mt-32" id="architektur">
+                <div class="flex flex-col gap-sm mb-md">
+                    <span class="font-label-sm text-primary uppercase tracking-widest">Systemvisualisierung</span>
+                    <h2 class="font-title-md text-headline-lg text-on-background">Technische Architektur</h2>
+                </div>
+                <!-- ASCII-Architekturdiagramm -->
+                <div class="glass-card p-md rounded-xl overflow-hidden shadow-sm">
+                    <pre class="text-[11px] leading-[1.6] text-on-surface-variant overflow-x-auto font-mono whitespace-pre">
+┌─────────────────────────────────────────────────────────────────────┐
+│                          CLIENT-SCHICHT                              │
+│                                                                     │
+│              ┌─────────────────────────────┐                        │
+│              │         Flutter App          │                        │
+│              │    (iOS · Android · Web)     │                        │
+│              └─────────────┬───────────────┘                        │
+└────────────────────────────┼────────────────────────────────────────┘
+                             │ HTTPS / REST
+┌────────────────────────────┼────────────────────────────────────────┐
+│                   AUTH- &amp; API-SCHICHT                              │
+│                            │                                        │
+│              ┌─────────────▼───────────────┐                        │
+│              │     Amazon API Gateway       │                        │
+│              │   (REST API, eu-central-1)   │                        │
+│              └──┬──────────────────────────┘                        │
+│                 │  Cognito-Authorisierer                             │
+│              ┌──▼──────────────────────────┐                        │
+│              │      Amazon Cognito          │                        │
+│              │   User Pool · PKCE/SRP       │                        │
+│              └─────────────────────────────┘                        │
+└────────────────────────────┼────────────────────────────────────────┘
+                             │ JWT-validierte Anfragen
+┌────────────────────────────┼────────────────────────────────────────┐
+│                       BACKEND-SCHICHT                               │
+│           ┌────────────────┼────────────────┐                       │
+│    ┌───────▼──────┐  ┌─────▼──────┐  ┌──────▼──────┐               │
+│    │    Lambda     │  │   Lambda   │  │   Lambda    │               │
+│    │ query_handler │  │ feedback_  │  │  health_    │               │
+│    │ POST /query   │  │  handler   │  │  handler    │               │
+│    └───────┬───────┘  └─────┬──────┘  └─────────────┘               │
+│            │                │                                       │
+│            │         ┌──────▼──────┐                                │
+│            │         │  DynamoDB   │                                │
+│            │         │  Feedback   │                                │
+│            │         └─────────────┘                                │
+└────────────┼────────────────────────────────────────────────────────┘
+             │ retrieve_and_generate()
+┌────────────┼────────────────────────────────────────────────────────┐
+│                      KI- / WISSENS-SCHICHT                          │
+│    ┌────────▼─────────────────────────────────────────────────┐     │
+│    │           Amazon Bedrock Knowledge Base                   │     │
+│    │                                                           │     │
+│    │   ┌─────────────────┐    ┌──────────────────────────┐    │     │
+│    │   │    Retrieval     │    │       Generierung         │    │     │
+│    │   │  OpenSearch      │    │  Claude 3 Sonnet          │    │     │
+│    │   │  Serverless      │◄───│  (Antwort + Zitate)       │    │     │
+│    │   │  (Vektorspeicher)│    │                           │    │     │
+│    │   └────────┬─────────┘    └──────────────────────────┘    │     │
+│    │            │ Quelldokumente                                │     │
+│    │   ┌────────▼─────────┐                                    │     │
+│    │   │    Amazon S3     │                                    │     │
+│    │   │ (PDFs · MDs ·    │                                    │     │
+│    │   │  FAQs · Manuals) │                                    │     │
+│    │   └──────────────────┘                                    │     │
+│    └──────────────────────────────────────────────────────────┘     │
+└─────────────────────────────────────────────────────────────────────┘
+             │ strukturierte Logs &amp; Metriken
+┌────────────▼────────────────────────────────────────────────────────┐
+│                     OBSERVABILITY-SCHICHT                            │
+│                   Amazon CloudWatch                                  │
+│          (Lambda-Logs · Bedrock-Latenzen · Fehlerraten)             │
+└─────────────────────────────────────────────────────────────────────┘</pre>
+                </div>
+            </section>
+
+            <!-- Systemzusammenfassung -->
+            <section class="scroll-mt-32 bg-white p-lg rounded-xl border border-outline-variant" id="zusammenfassung">
+                <div class="flex flex-col gap-sm">
+                    <h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary">article</span>
+                        Systemzusammenfassung
+                    </h3>
+                    <div class="font-body-md text-on-surface-variant space-y-md">
+                        <p>
+                            Der KI-Support-Wissensassistent ist eine produktionsreife, cloud-native RAG-Plattform (Retrieval-Augmented Generation), die auf dem serverlosen AWS-Stack basiert. Er löst das Problem der fragmentierten Support-Datenhaltung, indem Dokumentation aus S3, Wikis und Datenbanken in einem leistungsstarken Vektorspeicher (Amazon OpenSearch) zentralisiert wird.
+                        </p>
+                        <p>
+                            Mit Amazon Bedrock als Orchestrierungsschicht führt das System eine semantische Echtzeitsuche durch, um kontextrelevante Abschnitte abzurufen, bevor diese an Large Language Models (LLMs) zur fundierten Antwortgenerierung übergeben werden. Diese Architektur minimiert „Halluzinierungen" und stellt sicher, dass technische Antworten auf verifizierten internen Quellen basieren.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Komponentenreferenz -->
+            <section class="scroll-mt-32" id="komponenten">
+                <div class="flex flex-col gap-sm mb-md">
+                    <h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary">list_alt</span>
+                        Komponentenreferenz
+                    </h3>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-outline-variant">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface-container-high font-label-md text-on-surface">
+                                <th class="p-md border-b border-outline-variant">Technologie</th>
+                                <th class="p-md border-b border-outline-variant">Systemrolle</th>
+                                <th class="p-md border-b border-outline-variant">Bereitstellungstyp</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-body-md text-on-surface-variant">
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">Amazon Bedrock</td>
+                                <td class="p-md border-b border-outline-variant">LLM-Orchestrierung &amp; RAG-Wissensdatenbank</td>
+                                <td class="p-md border-b border-outline-variant">Managed Service</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">AWS Lambda</td>
+                                <td class="p-md border-b border-outline-variant">Anfrageverarbeitung &amp; Logik-Brücke</td>
+                                <td class="p-md border-b border-outline-variant">Serverlose Funktion</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">OpenSearch Serverless</td>
+                                <td class="p-md border-b border-outline-variant">Vektorembedding-Speicher &amp; semantische Suche</td>
+                                <td class="p-md border-b border-outline-variant">Managed Vector DB</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">Amazon Cognito</td>
+                                <td class="p-md border-b border-outline-variant">Benutzerauthentifizierung &amp; Identitätsverwaltung</td>
+                                <td class="p-md border-b border-outline-variant">SaaS-Identität</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">Amazon DynamoDB</td>
+                                <td class="p-md border-b border-outline-variant">Feedback-Speicher &amp; Sitzungsmetadaten</td>
+                                <td class="p-md border-b border-outline-variant">Managed NoSQL DB</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">Flutter 3.x</td>
+                                <td class="p-md border-b border-outline-variant">Plattformübergreifender Client (iOS, Android, Web)</td>
+                                <td class="p-md border-b border-outline-variant">Cross-Platform App</td>
+                            </tr>
+                            <tr class="hover:bg-surface-dim transition-colors">
+                                <td class="p-md border-b border-outline-variant font-bold text-on-surface">Terraform 1.6+</td>
+                                <td class="p-md border-b border-outline-variant">Gesamte Infrastruktur als Code</td>
+                                <td class="p-md border-b border-outline-variant">IaC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Datenflüsse -->
+            <section class="scroll-mt-32" id="datenfluesse">
+                <div class="flex flex-col gap-sm mb-md">
+                    <h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary">route</span>
+                        Abfrage- &amp; Feedback-Flüsse
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+
+                    <!-- Abfragefluss -->
+                    <div class="bg-surface p-md rounded-xl border border-outline-variant relative">
+                        <div class="flex items-center gap-sm mb-md">
+                            <span class="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+                            <h4 class="font-label-md text-on-surface">Abfragefluss</h4>
+                        </div>
+                        <div class="space-y-md relative">
+                            <div class="absolute left-4 top-0 bottom-0 w-px bg-outline-variant -z-10"></div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Eingabenormalisierung</p>
+                                    <p class="text-label-sm text-on-surface-variant">Cognito validiert JWT; API Gateway aktiviert Lambda.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Kontextabruf</p>
+                                    <p class="text-label-sm text-on-surface-variant">Embeddings generiert; OpenSearch führt Vektorsuche durch.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Synthese</p>
+                                    <p class="text-label-sm text-on-surface-variant">Bedrock LLM verarbeitet Kontext und gibt Antwort mit Quellenangabe zurück.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback-Schleife -->
+                    <div class="bg-surface p-md rounded-xl border border-outline-variant relative">
+                        <div class="flex items-center gap-sm mb-md">
+                            <span class="bg-secondary text-on-secondary w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                            <h4 class="font-label-md text-on-surface">Kontinuierliche Verbesserung</h4>
+                        </div>
+                        <div class="space-y-md relative">
+                            <div class="absolute left-4 top-0 bottom-0 w-px bg-outline-variant -z-10"></div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Stimmungserfassung</p>
+                                    <p class="text-label-sm text-on-surface-variant">Nutzerfeedback über Flutter-UI-Schaltflächen (Daumen hoch/runter).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Datenanreicherung</p>
+                                    <p class="text-label-sm text-on-surface-variant">Negatives Feedback löst Re-Indizierung der Wissensdatenbank aus.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-md ml-xs">
+                                <div class="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0"></div>
+                                <div class="flex-grow">
+                                    <p class="font-label-md text-on-surface">Automatische Optimierung</p>
+                                    <p class="text-label-sm text-on-surface-variant">S3-Quelldateien werden für höhere Präzision aktualisiert.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Erweiterungen -->
+            <section class="scroll-mt-32" id="erweiterungen">
+                <div class="flex flex-col gap-sm mb-md">
+                    <h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary">extension</span>
+                        Erweiterungen
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+                    <div class="glass-card p-lg rounded-xl flex flex-col gap-sm">
+                        <div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">smartphone</span>
+                        </div>
+                        <h4 class="font-title-md text-on-surface">Flutter App Interface</h4>
+                        <p class="font-body-md text-on-surface-variant">
+                            Eine plattformübergreifende Mobile-Oberfläche, die Agenten sekundenschnellen Zugriff auf den Wissensassistenten bietet. Funktionen umfassen gestreamte Textantworten, Markdown-Rendering für Code-Snippets und Offline-Dokumentations-Caching.
+                        </p>
+                    </div>
+                    <div class="glass-card p-lg rounded-xl flex flex-col gap-sm">
+                        <div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined">headset_mic</span>
+                        </div>
+                        <h4 class="font-title-md text-on-surface">Amazon Connect Integration</h4>
+                        <p class="font-body-md text-on-surface-variant">
+                            Sprach-gestütztes RAG ermöglicht telefonbasierten Support-Agenten, Abfragen per Sprachbefehl auszulösen. Das System transkribiert Agent-Kunden-Dialoge in Echtzeit und schlägt automatisch relevante Wissensartikel vor.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sicherheitsmodell -->
+            <section class="scroll-mt-32" id="sicherheit">
+                <div class="flex flex-col gap-sm mb-md">
+                    <h3 class="font-title-md text-title-md text-on-background flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary">verified_user</span>
+                        Sicherheitsmodell
+                    </h3>
+                </div>
+                <div class="overflow-hidden rounded-xl border border-outline-variant">
+                    <div class="grid grid-cols-3 bg-surface-container-high font-label-md text-on-surface">
+                        <div class="p-md border-r border-outline-variant">Grenze</div>
+                        <div class="p-md border-r border-outline-variant">Kontrolle</div>
+                        <div class="p-md">Implementierung</div>
+                    </div>
+                    <div class="grid grid-cols-3 border-t border-outline-variant font-body-md text-on-surface-variant">
+                        <div class="p-md border-r border-outline-variant bg-surface-container-low font-bold text-on-surface">Netzwerk</div>
+                        <div class="p-md border-r border-outline-variant">Verschlüsselung im Transit</div>
+                        <div class="p-md">TLS 1.3 via AWS Certificate Manager</div>
+                    </div>
+                    <div class="grid grid-cols-3 border-t border-outline-variant font-body-md text-on-surface-variant">
+                        <div class="p-md border-r border-outline-variant bg-surface-container-low font-bold text-on-surface">Identität</div>
+                        <div class="p-md border-r border-outline-variant">Rollenbasierter Zugriff</div>
+                        <div class="p-md">IAM-Rollen mit Least-Privilege &amp; Cognito User Pools</div>
+                    </div>
+                    <div class="grid grid-cols-3 border-t border-outline-variant font-body-md text-on-surface-variant">
+                        <div class="p-md border-r border-outline-variant bg-surface-container-low font-bold text-on-surface">Daten</div>
+                        <div class="p-md border-r border-outline-variant">Verschlüsselung im Ruhezustand</div>
+                        <div class="p-md">AWS KMS mit kundenverwalteten Schlüsseln (S3/OpenSearch)</div>
+                    </div>
+                    <div class="grid grid-cols-3 border-t border-outline-variant font-body-md text-on-surface-variant">
+                        <div class="p-md border-r border-outline-variant bg-surface-container-low font-bold text-on-surface">Secrets</div>
+                        <div class="p-md border-r border-outline-variant">Kein Klartext in Code/Env</div>
+                        <div class="p-md">AWS Secrets Manager (Produktion)</div>
+                    </div>
+                    <div class="grid grid-cols-3 border-t border-outline-variant font-body-md text-on-surface-variant">
+                        <div class="p-md border-r border-outline-variant bg-surface-container-low font-bold text-on-surface">Connect</div>
+                        <div class="p-md border-r border-outline-variant">Scoped Execution Role</div>
+                        <div class="p-md">IAM-Rolle nur für connect_query_handler (Terraform)</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-xl bg-surface-container-highest mt-xl">
+    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-[1440px] mx-auto gap-md">
+        <div class="flex flex-col items-center md:items-start gap-xs">
+            <span class="font-label-md text-label-md font-bold text-primary">COELN.DEV</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">© 2025 COELN.DEV. Alle Rechte vorbehalten.</span>
+        </div>
+        <div class="flex gap-lg">
+            <a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="../../projekte.html">Projekte</a>
+            <a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="https://github.com/saiedalo" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/sai-alo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('aside a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+        let current = "";
+        sections.forEach((section) => {
+            if (window.scrollY >= section.offsetTop - 150) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("bg-primary-container", "text-on-primary-container", "font-bold");
+            link.classList.add("text-on-surface-variant");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("bg-primary-container", "text-on-primary-container", "font-bold");
+                link.classList.remove("text-on-surface-variant");
+            }
+        });
+    });
+</script>
+</body>
+</html>
